@@ -59,7 +59,7 @@ if __name__ == "__main__":
     if not '--url' in argv:
         argv.insert(1, '--url')
         xdg_runtime_dir = '/run/user/1000'
-        if os.environ.get('XDG_RUNTIME_DIR') is None:
+        if not os.environ.get('XDG_RUNTIME_DIR') is None:
             xdg_runtime_dir = os.environ.get('XDG_RUNTIME_DIR') 
         argv.insert(2, 'unix://{path}'.format(path=os.path.join(xdg_runtime_dir, '/podman/podman.sock')))
 
